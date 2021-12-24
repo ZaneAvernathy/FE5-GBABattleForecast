@@ -24,7 +24,7 @@ One level up from your root folder, place:
 so that your folder structure is
 
 ```
-<VOLTEDGE>
+<VoltEdge>
 <FE5Tools>
 <This folder>
   * <TOOLS>
