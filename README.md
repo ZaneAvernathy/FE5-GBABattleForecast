@@ -3,6 +3,8 @@
 
 This is a toggleable* battle forecast that mimics the one found in the GBA Fire Emblem games.
 
+![](SC1.png)
+
 ## Usage
 
 ### Requirements
