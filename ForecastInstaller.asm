@@ -429,7 +429,7 @@ GUARD_GBA_FORECAST :?= false
         lda #<>aSelectedCharacterBuffer
         sta wR0
 
-        lda wUnknownStaffActionStructPointer
+        lda wStaffInventoryOffset
         sta wR17
 
         jsl rlActionStructPlayerCombatSelection
@@ -605,11 +605,7 @@ GUARD_GBA_FORECAST :?= false
         _WeaponIconProcs  := [(aActionStructUnit1.EquippedItemID2, procGBABattleForecastUnitIcon, None)]
         _WeaponIconProcs ..= [(aActionStructUnit2.EquippedItemID2, procGBABattleForecastTargetIcon, rlProcGBABattleForecastTargetIconOnCycle2)]
 
-        .for _Tuple in _WeaponIconProcs
-
-          _Item    := _Tuple[0]
-          _Proc    := _Tuple[1]
-          _Updater := _Tuple[2]
+        .for _Item, _Proc, _Updater in _WeaponIconProcs
 
           lda _Item
           and #$00FF
@@ -657,10 +653,7 @@ GUARD_GBA_FORECAST :?= false
         _MultiplierUnits  := [(aActionStructUnit1, aProcSystem.wInput1)]
         _MultiplierUnits ..= [(aActionStructUnit2, aProcSystem.wInput2)]
 
-        .for _Tuple in _MultiplierUnits
-
-          _Unit  := _Tuple[0]
-          _Input := _Tuple[1]
+        .for _Unit, _Input in _MultiplierUnits
 
           ; Check if unit has a weapon.
 
@@ -1849,10 +1842,7 @@ GUARD_GBA_FORECAST :?= false
         _Multipliers  := [(aProcSystem.aBody1, GBA_FORECAST_UNIT_MULTIPLIER_POSITION)]
         _Multipliers ..= [(aProcSystem.aBody2, GBA_FORECAST_TARGET_MULTIPLIER_POSITION)]
 
-        .for _Tuple in _Multipliers
-
-          _ItemOffset  := _Tuple[0]
-          _Coordinates := _Tuple[1]
+        .for _ItemOffset, _Coordinates in _Multipliers
 
           plx
           phx
